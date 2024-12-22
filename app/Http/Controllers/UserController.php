@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\GetUsersRequest;
+use App\Http\Requests\GetUserRequest;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
 
@@ -22,7 +22,7 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
-    public function index(GetUsersRequest $request): JsonResponse
+    public function index(GetUserRequest $request): JsonResponse
     {
         $users = $this->userService->getUsers($request->validated());
         return response()->json($users);
